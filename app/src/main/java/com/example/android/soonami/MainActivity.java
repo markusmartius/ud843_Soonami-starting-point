@@ -169,12 +169,9 @@ public class MainActivity extends AppCompatActivity {
                 urlConnection.setConnectTimeout(15000 /* milliseconds */);
                 urlConnection.connect();
                 // check http response
-                int responseCode = urlConnection.getResponseCode();
-                if (responseCode == 200) {
+                if (urlConnection.getResponseCode() == 200) {
                     inputStream = urlConnection.getInputStream();
                     jsonResponse = readFromStream(inputStream);
-                } else {
-                    jsonResponse = "";
                 }
             } catch (IOException e) {
                 // TODO: Handle the exception
